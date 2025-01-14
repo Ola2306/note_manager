@@ -1,16 +1,27 @@
 # Grade 1. Этап 1. Задание 5
+# создание списка
+note = []
 
+print("Введите информацию о заметке:")
 username = input("Имя пользователя: ")
 content = input("Описание заметки : ")
 status = input("Статус заметки: ")
 created_date = input("Дата создания заметки (дд-мм-гггг) : ")
 issue_date = input("Дата истечения заметки (дд-мм-гггг) : ")
-title1 = input("Заголовок заметки1: ")
-title2 = input("Заголовок заметки2: ")
+title1 = input("Заголовок заметки №1: ")
+title2 = input("Заголовок заметки №2: ")
+title3 = input("Заголовок заметки №3: ")
 
-note = [
-        username, content, status, created_date, issue_date,
-        [title1, title2]
-]
-
+# заполнение списка внесением введенных данных
+note = {
+    'Пользователь': username,
+    'Описание заметки': content,
+    'Статус': status,
+    'Дата создания ': created_date,
+    'Дата создания заметки': created_date,
+    'Дата истечения заметки': issue_date,
+    'Заголовки': [title1, title2, title3]
+}
+# вывод информации на экран
+print("Внесены следующие сведения о заметке:")
 print(note)
