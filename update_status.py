@@ -26,7 +26,7 @@ def korr_stat(ii):
             ii = input("Введите номер статуса заметки: ")
             dd = ii.isdigit()
             if dd == True and int(ii) >= 1 and int(ii) <= len(statuses):
-                i = int(ii)
+                ii = int(ii)
             else: dd = False
             continue
     # вывод установленного пользователем статуса заметки
