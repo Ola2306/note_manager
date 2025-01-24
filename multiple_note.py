@@ -45,17 +45,14 @@ iizm = ['yes', 'no', 'y', 'n', 'да', 'нет', 'д', 'н']
 izm = ''
 new = 1
 print("Введите информацию о заметках:")
-end = True
 # Ввод нескольких заметок
-while end:
+while True:
     note1 = spis_note(note1, new)
     note.append(note1)
     izm = input(f'Хотите добавить ещё одну заметку? Если да - введите: "да"(д) или "yes" (y).\n Если нет - введите:"нет"(н) или "no"(n) или оставьте поле пустым (нажмите Enter): ')
     if izm in iizm[::2]:
         new += 1
-        continue
     else:
-        end = False
         break
 
 # вывод информации из списка словарей на экран
