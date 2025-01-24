@@ -16,17 +16,18 @@ def vvod_date(date_tmp, text1):
 
 # Функция ввода и хранения списка словарей  (заметок)
 def spis_note(note1, new):
-    print(f"Введите информацию о заметке № {new}:")
-    username = input("Имя пользователя: ")
-    content = input("Описание заметки : ")
-    status = input("Статус заметки: ")
+    print(f'Вы моэжете добавить новую заметку. Заметка № {new}:')
+    username = input('Имя пользователя: ')
+    content = input('Описание заметки: ')
+    status = input('Статус заметки: ')
     text1 = 'создания'
     created_date = vvod_date(date_tmp,text1)
     text1 = 'истечения'
     issue_date = vvod_date(date_tmp,text1)
-    title = input("Заголовок заметки: ")
+    title = input('Заголовок заметки: ')
     # заполнение списка внесением введенных данных
     note1 = {
+        'ID':new,
         'Пользователь': username,
         'Описание заметки': content,
         'Статус': status,
@@ -44,7 +45,7 @@ note = note1 = []
 iizm = ['yes', 'no', 'y', 'n', 'да', 'нет', 'д', 'н']
 izm = ''
 new = 1
-print("Введите информацию о заметках:")
+print('Добро пожаловать в "Менеджер заметок"!')
 # Ввод нескольких заметок
 while True:
     note1 = spis_note(note1, new)
@@ -58,7 +59,7 @@ while True:
 # вывод информации из списка словарей на экран
 print('\nВнесены следующие сведения о заметках:')
 for i in range(len(note)):
-    print(f'Заметка № {i+1}: ')
+    print(f'Заметка № {note[i]['ID']} : ')
     print(f'Пользователь: {note[i]['Пользователь']} ')
     print(f'Описание заметки: {note[i]['Описание заметки']} ')
     print(f'Статус заметки: {note[i]['Статус']} ')
