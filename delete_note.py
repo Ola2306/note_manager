@@ -175,7 +175,6 @@ else:
             print('\nСписок заметок пустой.')
             break
         change = input(f' Надо удалить некорректную заметку? Если да - введите: "да"(д) или "yes" (y).\n Если нет - введите:"нет"(н) или "no"(n) или оставьте поле пустым (нажмите Enter): ')
-        print(f'Введено :  @{not ((change in change_stat) or (change != ''))}@  список ответов ')
         if change == '': break
         else:
             while not (change in change_stat):
