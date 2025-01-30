@@ -37,11 +37,12 @@ def create_note():
             print(f'Статус №2: {statuses[2]}')
             print(f'Статус №3: {statuses[3]}')
             print(f'Статус №4: {statuses[4]}')
+            print(f'Статус №5: {statuses[5]}')
             # Ввод пользователем номера статуса заметки: i - номер статуса заметки
             stat_tmp = input('Установить заметке Статус ')
             # Проверка не ввел ли пользователь значение статуса вместо его номера (с учетом, что статусы набраны в верхнем регистре)
-            if stat_tmp.upper() in spis:
-                status = stat_tmp.upper()
+            if stat_tmp.lower() in spis:
+                status = stat_tmp.lower()
                 break
             else:
                 # Проверка корректности выбора статуса заметки
@@ -50,7 +51,7 @@ def create_note():
                 while dd == False:
                     print(f'Введено не корректное значение номера или наименования статуса заметки: {stat_tmp}.\nДолжно вводиться целое число от 1 до {len(statuses)} или наименование статуса из списка.')
                     stat_tmp = input('Введите номер или наименование статуса заметки: ')
-                    if stat_tmp.upper() in spis:
+                    if stat_tmp.lower() in spis:
                         break
                     else:
                         dd = stat_tmp.isdigit()
@@ -60,8 +61,8 @@ def create_note():
                         else:
                             dd = False
                     continue
-                if stat_tmp.upper() in spis:
-                    status = stat_tmp.upper()
+                if stat_tmp.lower() in spis:
+                    status = stat_tmp.lower()
                     break
                 else:
                     status = statuses[int(stat_tmp)]
@@ -94,11 +95,10 @@ def create_note():
         note1 = {
             'ID':new,
             'Пользователь': username,
-            'Описание заметки': content,
+            'Описание': content,
             'Статус': status,
-            'Дата создания ': created_date,
-            'Дата создания заметки': created_date,
-            'Дата истечения заметки': issue_date,
+            'Дата создания': created_date,
+            'Дата истечения': issue_date,
             'Заголовок': title
         }
     return note1
@@ -110,12 +110,13 @@ def out_note(note):
     else:
         for i in range(len(note)):
             print(f'Заметка № {note[i]['ID']} : ')
-            print(f'Пользователь: {note[i]['Пользователь']} ')
-            print(f'Описание заметки: {note[i]['Описание заметки']} ')
-            print(f'Статус заметки: {note[i]['Статус']} ')
-            print(f'Дата создания заметки (дд-мм-гггг): {note[i]['Дата создания заметки']} ')
-            print(f'Заметка актуальна до (дд-мм-гггг): {note[i]['Дата истечения заметки']} ')
-            print(f'Заголовок заметки : {note[i]['Заголовок']} ')
+            print(f'Имя пользователя: {note[i]['Пользователь']} ')
+            print(f'Заголовок : {note[i]['Заголовок']} ')
+            print(f'Описание: {note[i]['Описание']} ')
+            print(f'Статус: {note[i]['Статус']} ')
+            print(f'Дата создания (дд-мм-гггг): {note[i]['Дата создания']} ')
+            print(f'Заметка актуальна до (дд-мм-гггг): {note[i]['Дата истечения']} ')
+
     return
 
 
@@ -126,10 +127,11 @@ change_stat = ['yes', 'no', 'y', 'n', 'да', 'нет', 'д', 'н', 'Yes', 'No',
 change = ''
 # Словарь возможных статусов заметки
 statuses = {
-    1: 'ПОЛУЧЕНА',
-    2: 'В РАБОТЕ',
-    3: 'ОТЛОЖЕНА',
-    4: 'ВЫПОЛНЕНА',
+    1: 'новая',
+    2: 'получена',
+    3: 'в работе',
+    4: 'отложена',
+    5: 'выполнена',
 }
 # Список возможных статусов заметки
 spis = list(statuses.values())
@@ -163,5 +165,6 @@ while True:
 if len(note) == 0:
     print('Список заметок пустой.')
 else:
-    print('\nОстались следующие сведения о заметках:')
+    print('\nВведены следующие сведения о заметках:')
     out_note(note)
+
